@@ -44,9 +44,3 @@ The experiment compares model behavior **with KL Divergence** and **without KL D
 - Hidden layer: 400 neurons (ReLU)
 - Output layer: 784 neurons (Sigmoid)
 
-
-
-- **Binary Cross Entropy (BCE)** – reconstruction loss  
-- **KL Divergence (KLD)** – regularization term  
-
-Final loss:
