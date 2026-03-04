@@ -1,43 +1,181 @@
-# Synthetic Medical X-Ray Generation & Classification Pipeline
-[cite_start]**Course:** CSET419 - Introduction to Generative AI [cite: 1]  
-[cite_start]**Experiment:** Lab 1 - Implement a Simple Generative Algorithm for Data Generation [cite: 2, 4]
+# CSET419 – Introduction to Generative AI Labs
+Workflows for all Generative AI labs. Each lab focuses on implementing a different generative model or technique used in modern AI systems.
 
-## 📌 Project Overview
-This project demonstrates the fundamentals of Generative AI by creating a synthetic medical imaging dataset and using it to train a diagnostic classifier. The workflow consists of two main stages:
-1.  [cite_start]**Data Generation:** Using a pre-trained **Stable Diffusion** model to generate synthetic chest X-rays based on medical text prompts[cite: 5, 9, 11].
-2.  **Classification:** Training a **ResNet-18** Deep Learning model (Transfer Learning) to classify these synthetic images into 10 distinct medical categories.
+---
 
-## 📂 Dataset Structure
-[cite_start]The generated dataset is stored in a structured folder format suitable for `torchvision.datasets.ImageFolder`[cite: 12]. 
+# Lab 1 – Synthetic Data Generation
+## Objective
+Generate synthetic data using a pre-trained generative model.
 
-**Root Directory:** `synthetic_xray_dataset`
+## Workflow
+1. Select a domain for data generation (e.g., images).
+2. Choose a pre-trained generative model (e.g., Stable Diffusion).
+3. Provide multiple text prompts.
+4. Generate synthetic samples using the model.
+5. Store generated outputs in a dataset folder.
+6. Display and verify sample outputs.
 
-* 📁 **Cardiac_Findings** (Cardiomegaly, vascular congestion)
-* 📁 **Domain_Shift** (Scanner variations, resolution differences)
-* 📁 **Imaging_Artifacts** (Motion blur, noise, exposure issues)
-* 📁 **Infectious_Patterns** (Pneumonia, consolidation)
-* 📁 **Lung_Opacities** (Ground-glass, diffuse haziness)
-* 📁 **Medical_Devices** (Pacemakers, tubes, catheters)
-* 📁 **Normal_Anatomy** (Healthy lungs, clear diaphragm)
-* 📁 **Pleural_Conditions** (Effusion, pneumothorax)
-* 📁 **Structural_Lesions** (Nodules, masses, fibrosis)
-* 📁 **View_Positioning** (AP/PA views, rotation)
+## Output
+- Synthetic dataset generated from prompts. :contentReference[oaicite:0]{index=0}
 
-*(Structure verified from project file output)*
+---
 
-## 🛠️ Tech Stack & Dependencies
-* **Language:** Python
-* **Environment:** Google Colab (GPU-enabled)
-* **Generative Model:** `runwayml/stable-diffusion-v1-5` (Hugging Face) [cite: 9]
-* **Classification Model:** ResNet-18 (Pre-trained on ImageNet)
-* **Libraries:**
-    * `diffusers`, `transformers`, `accelerate` (For Generation)
-    * `torch`, `torchvision` (For Training)
-    * `matplotlib` (For Visualization)
+# Lab 2 – GAN for Image Generation
+## Objective
+Train a basic Generative Adversarial Network (GAN) to generate synthetic images.
 
-## 🚀 How to Run
+## Workflow
+1. Load dataset (MNIST or Fashion-MNIST).
+2. Normalize dataset images.
+3. Define Generator network.
+4. Define Discriminator network.
+5. Initialize hyperparameters:
+   - epochs
+   - batch_size
+   - noise_dim
+   - learning_rate
+6. Train GAN:
+   - Train discriminator on real and fake images.
+   - Train generator using adversarial loss.
+7. Save generated image samples during training.
+8. Generate final synthetic images.
+9. Use a pretrained classifier to predict labels of generated images.
 
-### Step 1: Install Dependencies
-Run this command in the first cell of your notebook:
-```bash
-!pip install diffusers transformers accelerate torch torchvision
+## Output
+- Training logs
+- Generated image samples
+- Final generated images
+- Predicted labels of generated images. :contentReference[oaicite:1]{index=1}
+
+---
+
+# Lab 3 – Variational Autoencoder (VAE)
+## Objective
+Implement a Variational Autoencoder to learn latent representations and generate new samples.
+
+## Workflow
+1. Load dataset (MNIST / Fashion-MNIST).
+2. Normalize input data.
+3. Split dataset into training and testing sets.
+4. Build Encoder network.
+5. Compute latent mean and variance.
+6. Apply reparameterization trick.
+7. Build Decoder network.
+8. Define loss function:
+   - Reconstruction loss
+   - KL Divergence
+9. Train the VAE model.
+10. Generate new samples from latent space.
+11. Visualize latent space (optional).
+
+## Output
+- Trained VAE model
+- Reconstructed images
+- Generated images
+- Loss curves. :contentReference[oaicite:2]{index=2}
+
+---
+
+# Lab 4 – Text Generation Model
+## Objective
+Train a neural network to generate new text sequences from a text corpus.
+
+## Workflow
+1. Load text dataset.
+2. Preprocess text data.
+3. Perform tokenization (character-level or word-level).
+4. Create input-output training sequences.
+5. Design sequence model:
+   - RNN / LSTM / GRU.
+6. Train the model.
+7. Provide a seed text.
+8. Generate new text sequences.
+
+### Transformer Extension
+1. Tokenize text using subword or word-level tokenization.
+2. Add positional encoding.
+3. Implement Transformer encoder blocks.
+4. Train the transformer model.
+5. Generate text samples.
+
+## Output
+- Generated text samples. :contentReference[oaicite:3]{index=3}
+
+---
+
+# Lab 5 – Image-to-Image Translation (Baseline CNN)
+## Objective
+Implement an encoder–decoder CNN for image-to-image translation.
+
+## Workflow
+1. Load paired image dataset (CIFAR10).
+2. Normalize images to range [-1, 1].
+3. Build encoder-decoder CNN architecture.
+4. Train model using reconstruction loss:
+   - MSE
+   - L1 loss
+5. Generate translated images.
+6. Visualize outputs.
+
+## Output
+- Translated images (often blurry due to lack of GAN training). :contentReference[oaicite:4]{index=4}
+
+---
+
+# Lab 6 – Pix2Pix GAN
+## Objective
+Implement Pix2Pix GAN for image-to-image translation.
+
+## Workflow
+1. Prepare paired dataset (Edges → Real images).
+2. Split dataset into training and testing sets.
+3. Implement U-Net generator:
+   - Downsampling layers
+   - Upsampling layers
+   - Skip connections
+4. Implement PatchGAN discriminator.
+5. Define losses:
+   - Adversarial loss
+   - L1 reconstruction loss
+6. Train GAN with alternating generator and discriminator updates.
+7. Generate translated images.
+8. Compare results with baseline CNN.
+
+## Output
+- Sharper translated images compared to CNN model. :contentReference[oaicite:5]{index=5}
+
+---
+
+# Lab 7 – Neural Style Transfer
+## Objective
+Generate a stylized image by combining content from one image and style from another.
+
+## Workflow
+1. Load content image.
+2. Load style image.
+3. Load pretrained VGG19 model.
+4. Extract content and style layers.
+5. Define loss functions:
+   - Content loss
+   - Style loss
+   - Total loss
+6. Perform iterative optimization on the generated image.
+7. Update image to minimize total loss.
+
+## Output
+- Stylized image with preserved content and transferred artistic style. :contentReference[oaicite:6]{index=6}
+
+---
+
+# Summary of Labs
+| Lab | Topic | Model Used |
+|----|----|----|
+| Lab 1 | Synthetic Data Generation | Pretrained Diffusion Model |
+| Lab 2 | Image Generation | GAN |
+| Lab 3 | Latent Representation | VAE |
+| Lab 4 | Text Generation | RNN / Transformer |
+| Lab 5 | Image Translation | CNN Encoder–Decoder |
+| Lab 6 | Image Translation | Pix2Pix GAN |
+| Lab 7 | Artistic Style Transfer | Neural Style Transfer |
+
+---
