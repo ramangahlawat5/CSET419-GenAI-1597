@@ -16,13 +16,18 @@ Generate synthetic data using a pre-trained generative model.
 6. Display and verify sample outputs.
 
 ## Output
-- Synthetic dataset generated from prompts. :contentReference[oaicite:0]{index=0}
+- Synthetic dataset generated from prompts. 
 
 ---
 
 # Lab 2 – GAN for Image Generation
 ## Objective
 Train a basic Generative Adversarial Network (GAN) to generate synthetic images.
+
+
+
+[Image of Generative Adversarial Network architecture diagram]
+
 
 ## Workflow
 1. Load dataset (MNIST or Fashion-MNIST).
@@ -45,13 +50,15 @@ Train a basic Generative Adversarial Network (GAN) to generate synthetic images.
 - Training logs
 - Generated image samples
 - Final generated images
-- Predicted labels of generated images. :contentReference[oaicite:1]{index=1}
+- Predicted labels of generated images. 
 
 ---
 
 # Lab 3 – Variational Autoencoder (VAE)
 ## Objective
 Implement a Variational Autoencoder to learn latent representations and generate new samples.
+
+
 
 ## Workflow
 1. Load dataset (MNIST / Fashion-MNIST).
@@ -72,7 +79,7 @@ Implement a Variational Autoencoder to learn latent representations and generate
 - Trained VAE model
 - Reconstructed images
 - Generated images
-- Loss curves. :contentReference[oaicite:2]{index=2}
+- Loss curves. 
 
 ---
 
@@ -99,7 +106,7 @@ Train a neural network to generate new text sequences from a text corpus.
 5. Generate text samples.
 
 ## Output
-- Generated text samples. :contentReference[oaicite:3]{index=3}
+- Generated text samples. 
 
 ---
 
@@ -118,13 +125,15 @@ Implement an encoder–decoder CNN for image-to-image translation.
 6. Visualize outputs.
 
 ## Output
-- Translated images (often blurry due to lack of GAN training). :contentReference[oaicite:4]{index=4}
+- Translated images (often blurry due to lack of GAN training). 
 
 ---
 
 # Lab 6 – Pix2Pix GAN
 ## Objective
 Implement Pix2Pix GAN for image-to-image translation.
+
+
 
 ## Workflow
 1. Prepare paired dataset (Edges → Real images).
@@ -142,13 +151,15 @@ Implement Pix2Pix GAN for image-to-image translation.
 8. Compare results with baseline CNN.
 
 ## Output
-- Sharper translated images compared to CNN model. :contentReference[oaicite:5]{index=5}
+- Sharper translated images compared to CNN model. 
 
 ---
 
 # Lab 7 – Neural Style Transfer
 ## Objective
 Generate a stylized image by combining content from one image and style from another.
+
+
 
 ## Workflow
 1. Load content image.
@@ -163,7 +174,31 @@ Generate a stylized image by combining content from one image and style from ano
 7. Update image to minimize total loss.
 
 ## Output
-- Stylized image with preserved content and transferred artistic style. :contentReference[oaicite:6]{index=6}
+- Stylized image with preserved content and transferred artistic style. 
+
+---
+
+# Lab 8 – Create Artistic Outputs using Neural Art Concepts
+## Objective
+Generate artistic images using Generative Adversarial Networks (GANs) by exploring the latent space of the generator. Investigate how different architectures produce varied outputs and how latent space interpolation behaves.
+
+
+
+## Workflow
+1. Apply environment patches for modern Python and SSL compatibility.
+2. Load a pre-trained basic GAN model (e.g., DCGAN on CelebA).
+3. Generate 5-10 random samples using the basic GAN to visualize artistic diversity.
+4. Perform mathematical interpolation between two random latent vectors to observe smooth visual transitions.
+5. Load a pre-trained advanced GAN model (e.g., PGAN on CelebA-HQ).
+6. Generate 5-10 high-resolution random samples using the advanced GAN.
+7. Perform latent vector interpolation on the advanced GAN model.
+8. Display and locally save the generated grids for comparison.
+
+## Output
+- Generated basic GAN image samples.
+- Interpolated basic GAN transition sequences.
+- Generated high-resolution advanced GAN image samples.
+- Interpolated advanced GAN transition sequences.
 
 ---
 
@@ -177,5 +212,4 @@ Generate a stylized image by combining content from one image and style from ano
 | Lab 5 | Image Translation | CNN Encoder–Decoder |
 | Lab 6 | Image Translation | Pix2Pix GAN |
 | Lab 7 | Artistic Style Transfer | Neural Style Transfer |
-
----
+| Lab 8 | Artistic Outputs via Latent Space | DCGAN & PGAN (Pre-trained) |
