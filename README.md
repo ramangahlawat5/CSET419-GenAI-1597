@@ -133,8 +133,6 @@ Implement an encoder–decoder CNN for image-to-image translation.
 ## Objective
 Implement Pix2Pix GAN for image-to-image translation.
 
-
-
 ## Workflow
 1. Prepare paired dataset (Edges → Real images).
 2. Split dataset into training and testing sets.
@@ -159,8 +157,6 @@ Implement Pix2Pix GAN for image-to-image translation.
 ## Objective
 Generate a stylized image by combining content from one image and style from another.
 
-
-
 ## Workflow
 1. Load content image.
 2. Load style image.
@@ -182,8 +178,6 @@ Generate a stylized image by combining content from one image and style from ano
 ## Objective
 Generate artistic images using Generative Adversarial Networks (GANs) by exploring the latent space of the generator. Investigate how different architectures produce varied outputs and how latent space interpolation behaves.
 
-
-
 ## Workflow
 1. Apply environment patches for modern Python and SSL compatibility.
 2. Load a pre-trained basic GAN model (e.g., DCGAN on CelebA).
@@ -202,6 +196,34 @@ Generate artistic images using Generative Adversarial Networks (GANs) by explori
 
 ---
 
+# Lab 9 – Sequence Generation
+## Objective
+Understand how generative models can be applied to sequential data such as text, time-series, or language sequences.Design and implement simple generative models capable of learning patterns from sequences and generating new sequences.
+
+
+
+## Workflow
+### Component I: Sequence Generation using RNN / LSTM [cite: 28]
+1. Load and preprocess the sequential dataset. [cite: 30]
+2. Convert sequences into numerical representations. [cite: 31]
+3. Create input-output sequence pairs. [cite: 32]
+4. Design an RNN or LSTM based generative model. [cite: 33]
+5. Train the model on the sequence dataset. [cite: 34]
+6. Generate new sequences using a seed input. [cite: 35]
+
+### Component II: Transformer Based Sequence Generation [cite: 56]
+1. Use the same sequence dataset as Component I. [cite: 58]
+2. Perform word-level or subword tokenization. [cite: 59]
+3. Implement positional encoding for sequence order. [cite: 60]
+4. Design a Transformer-based architecture. [cite: 61]
+5. Train the model on the sequence dataset. [cite: 62]
+
+## Output
+- Generated sequence samples from the RNN/LSTM. [cite: 55]
+- Generated sequences using the Transformer model. [cite: 64]
+
+---
+
 # Summary of Labs
 | Lab | Topic | Model Used |
 |----|----|----|
@@ -213,3 +235,4 @@ Generate artistic images using Generative Adversarial Networks (GANs) by explori
 | Lab 6 | Image Translation | Pix2Pix GAN |
 | Lab 7 | Artistic Style Transfer | Neural Style Transfer |
 | Lab 8 | Artistic Outputs via Latent Space | DCGAN & PGAN (Pre-trained) |
+| Lab 9 | Sequence Generation | RNN / LSTM & Transformer |
