@@ -1,226 +1,139 @@
 # CSET419 – Introduction to Generative AI Labs
-Workflows for all Generative AI labs. Each lab focuses on implementing a different generative model or technique used in modern AI systems.
+Workflows for all Generative AI labs. Each lab focuses on implementing a different generative model or technique.
 
 ---
 
 # Lab 1 – Synthetic Data Generation
 ## Objective
 Generate synthetic data using a pre-trained generative model.
-
 ## Workflow
-1. Select a domain for data generation (e.g., images).
-2. Choose a pre-trained generative model (e.g., Stable Diffusion).
-3. Provide multiple text prompts.
-4. Generate synthetic samples using the model.
-5. Store generated outputs in a dataset folder.
-6. Display and verify sample outputs.
-
+1. Select domain and pre-trained model (e.g., Stable Diffusion).
+2. Provide text prompts and generate samples.
+3. Store and verify outputs.
 ## Output
-- Synthetic dataset generated from prompts. 
+- Synthetic dataset. 
 
 ---
 
 # Lab 2 – GAN for Image Generation
 ## Objective
 Train a basic Generative Adversarial Network (GAN) to generate synthetic images.
-
-
-
-[Image of Generative Adversarial Network architecture diagram]
-
-
 ## Workflow
-1. Load dataset (MNIST or Fashion-MNIST).
-2. Normalize dataset images.
-3. Define Generator network.
-4. Define Discriminator network.
-5. Initialize hyperparameters:
-   - epochs
-   - batch_size
-   - noise_dim
-   - learning_rate
-6. Train GAN:
-   - Train discriminator on real and fake images.
-   - Train generator using adversarial loss.
-7. Save generated image samples during training.
-8. Generate final synthetic images.
-9. Use a pretrained classifier to predict labels of generated images.
-
+1. Load and normalize dataset.
+2. Define Generator and Discriminator networks.
+3. Train GAN using adversarial loss.
+4. Save and predict labels of generated images.
 ## Output
-- Training logs
-- Generated image samples
-- Final generated images
-- Predicted labels of generated images. 
+- Training logs and generated image samples.
 
 ---
 
 # Lab 3 – Variational Autoencoder (VAE)
 ## Objective
-Implement a Variational Autoencoder to learn latent representations and generate new samples.
-
-
-
+Implement a VAE to learn latent representations and generate new samples.
 ## Workflow
-1. Load dataset (MNIST / Fashion-MNIST).
-2. Normalize input data.
-3. Split dataset into training and testing sets.
-4. Build Encoder network.
-5. Compute latent mean and variance.
-6. Apply reparameterization trick.
-7. Build Decoder network.
-8. Define loss function:
-   - Reconstruction loss
-   - KL Divergence
-9. Train the VAE model.
-10. Generate new samples from latent space.
-11. Visualize latent space (optional).
-
+1. Load dataset and build Encoder/Decoder networks.
+2. Apply reparameterization trick.
+3. Train using Reconstruction loss and KL Divergence.
+4. Generate new samples from latent space.
 ## Output
-- Trained VAE model
-- Reconstructed images
-- Generated images
-- Loss curves. 
+- Trained model, reconstructed, and generated images.
 
 ---
 
 # Lab 4 – Text Generation Model
 ## Objective
-Train a neural network to generate new text sequences from a text corpus.
-
+Train a neural network to generate new text sequences from a corpus.
 ## Workflow
-1. Load text dataset.
-2. Preprocess text data.
-3. Perform tokenization (character-level or word-level).
-4. Create input-output training sequences.
-5. Design sequence model:
-   - RNN / LSTM / GRU.
-6. Train the model.
-7. Provide a seed text.
-8. Generate new text sequences.
-
-### Transformer Extension
-1. Tokenize text using subword or word-level tokenization.
-2. Add positional encoding.
-3. Implement Transformer encoder blocks.
-4. Train the transformer model.
-5. Generate text samples.
-
+1. Load, preprocess, and tokenize text data.
+2. Design sequence model (RNN/LSTM/GRU or Transformer).
+3. Train model and generate sequences using seed text.
 ## Output
-- Generated text samples. 
+- Generated text samples.
 
 ---
 
 # Lab 5 – Image-to-Image Translation (Baseline CNN)
 ## Objective
-Implement an encoder–decoder CNN for image-to-image translation.
-
+Implement an encoder–decoder CNN for image translation.
 ## Workflow
-1. Load paired image dataset (CIFAR10).
-2. Normalize images to range [-1, 1].
-3. Build encoder-decoder CNN architecture.
-4. Train model using reconstruction loss:
-   - MSE
-   - L1 loss
-5. Generate translated images.
-6. Visualize outputs.
-
+1. Load paired dataset (CIFAR10) and build CNN architecture.
+2. Train using MSE/L1 loss.
+3. Generate translated images.
 ## Output
-- Translated images (often blurry due to lack of GAN training). 
+- Translated images (often blurry).
 
 ---
 
 # Lab 6 – Pix2Pix GAN
 ## Objective
 Implement Pix2Pix GAN for image-to-image translation.
-
 ## Workflow
-1. Prepare paired dataset (Edges → Real images).
-2. Split dataset into training and testing sets.
-3. Implement U-Net generator:
-   - Downsampling layers
-   - Upsampling layers
-   - Skip connections
-4. Implement PatchGAN discriminator.
-5. Define losses:
-   - Adversarial loss
-   - L1 reconstruction loss
-6. Train GAN with alternating generator and discriminator updates.
-7. Generate translated images.
-8. Compare results with baseline CNN.
-
+1. Prepare paired dataset and implement U-Net generator.
+2. Implement PatchGAN discriminator.
+3. Train with Adversarial and L1 loss.
 ## Output
-- Sharper translated images compared to CNN model. 
+- Sharper translated images.
 
 ---
 
 # Lab 7 – Neural Style Transfer
 ## Objective
-Generate a stylized image by combining content from one image and style from another.
-
+Generate a stylized image combining content and style from different images.
 ## Workflow
-1. Load content image.
-2. Load style image.
-3. Load pretrained VGG19 model.
-4. Extract content and style layers.
-5. Define loss functions:
-   - Content loss
-   - Style loss
-   - Total loss
-6. Perform iterative optimization on the generated image.
-7. Update image to minimize total loss.
-
+1. Load content/style images and pre-trained VGG19.
+2. Extract layers and define content/style/total loss.
+3. Optimize generated image iteratively.
 ## Output
-- Stylized image with preserved content and transferred artistic style. 
+- Stylized image.
 
 ---
 
-# Lab 8 – Create Artistic Outputs using Neural Art Concepts
+# Lab 8 – Artistic Outputs via Neural Art
 ## Objective
-Generate artistic images using Generative Adversarial Networks (GANs) by exploring the latent space of the generator. Investigate how different architectures produce varied outputs and how latent space interpolation behaves.
-
+Generate artistic images using GAN latent space exploration.
 ## Workflow
-1. Apply environment patches for modern Python and SSL compatibility.
-2. Load a pre-trained basic GAN model (e.g., DCGAN on CelebA).
-3. Generate 5-10 random samples using the basic GAN to visualize artistic diversity.
-4. Perform mathematical interpolation between two random latent vectors to observe smooth visual transitions.
-5. Load a pre-trained advanced GAN model (e.g., PGAN on CelebA-HQ).
-6. Generate 5-10 high-resolution random samples using the advanced GAN.
-7. Perform latent vector interpolation on the advanced GAN model.
-8. Display and locally save the generated grids for comparison.
-
+1. Load pre-trained basic and advanced GAN models.
+2. Generate random samples.
+3. Perform latent vector interpolation to observe transitions.
 ## Output
-- Generated basic GAN image samples.
-- Interpolated basic GAN transition sequences.
-- Generated high-resolution advanced GAN image samples.
-- Interpolated advanced GAN transition sequences.
+- Generated samples and interpolated transition sequences.
 
 ---
 
 # Lab 9 – Sequence Generation
 ## Objective
-Understand how generative models can be applied to sequential data such as text, time-series, or language sequences.Design and implement simple generative models capable of learning patterns from sequences and generating new sequences.
-
-
-
+Apply generative models to sequential data.
 ## Workflow
-### Component I: Sequence Generation using RNN / LSTM [cite: 28]
-1. Load and preprocess the sequential dataset. [cite: 30]
-2. Convert sequences into numerical representations. [cite: 31]
-3. Create input-output sequence pairs. [cite: 32]
-4. Design an RNN or LSTM based generative model. [cite: 33]
-5. Train the model on the sequence dataset. [cite: 34]
-6. Generate new sequences using a seed input. [cite: 35]
-
-### Component II: Transformer Based Sequence Generation [cite: 56]
-1. Use the same sequence dataset as Component I. [cite: 58]
-2. Perform word-level or subword tokenization. [cite: 59]
-3. Implement positional encoding for sequence order. [cite: 60]
-4. Design a Transformer-based architecture. [cite: 61]
-5. Train the model on the sequence dataset. [cite: 62]
-
+1. Component I: Train an RNN/LSTM model to generate sequences.
+2. Component II: Train a Transformer model with positional encoding for sequence generation.
 ## Output
-- Generated sequence samples from the RNN/LSTM. [cite: 55]
-- Generated sequences using the Transformer model. [cite: 64]
+- Generated sequences.
+
+---
+
+# Lab 10 – Sequential Data Generation
+## Objective
+Implement a generative model capable of learning patterns from sequential data and generating new sequences.
+## Workflow
+1. Preprocess and tokenize the sequence dataset.
+2. Design and train an RNN/LSTM-based model.
+3. Design and train a Transformer encoder architecture with positional encoding.
+## Output
+- Generated text sequences.
+
+---
+
+# Lab 11 – Fine-Tuning for Real-World Applications
+## Objective
+Fine-tune a pre-trained generative model (GPT-2) for real-world applications.
+## Workflow
+1. Component I: Fine-tune GPT-2 on e-commerce data to generate product reviews.
+2. Component II: Fine-tune GPT-2 on food-tech data to generate recipe instructions.
+3. Compare the baseline outputs with fine-tuned outputs for both tasks.
+## Output
+- Realistic product review language.
+- Step-by-step cooking instructions.
 
 ---
 
@@ -234,5 +147,7 @@ Understand how generative models can be applied to sequential data such as text,
 | Lab 5 | Image Translation | CNN Encoder–Decoder |
 | Lab 6 | Image Translation | Pix2Pix GAN |
 | Lab 7 | Artistic Style Transfer | Neural Style Transfer |
-| Lab 8 | Artistic Outputs via Latent Space | DCGAN & PGAN (Pre-trained) |
+| Lab 8 | Artistic Outputs via Latent Space | DCGAN & PGAN |
 | Lab 9 | Sequence Generation | RNN / LSTM & Transformer |
+| Lab 10 | Sequential Data Generation | RNN / LSTM & Transformer |
+| Lab 11 | Fine-Tuning GPT-2 | GPT-2 |
