@@ -137,6 +137,21 @@ Fine-tune a pre-trained generative model (GPT-2) for real-world applications.
 
 ---
 
+# Lab 12 – Generative Model with Attention
+## Objective
+Implement a text generation model using attention to improve contextual understanding.
+## Workflow
+1. **Preprocessing**: Load Cornell Movie Dialog dataset, clean text, and build vocabulary.
+2. **Model Design**: Implement an architecture consisting of an Embedding layer, LSTM Encoder, Attention mechanism, and Output layer.
+3. **Attention Mechanism**: Use Bahdanau (additive) attention to assign weights to input words, focusing on relevant parts of the sentence.
+4. **Training**: Train the model using CrossEntropyLoss and the Adam optimizer.
+5. **Evaluation**: Generate responses to user input and visualize attention weights.
+## Output
+- Chatbot capable of generating replies with contextual focus.
+- Visualized attention maps showing model focus during generation.
+
+---
+
 # Summary of Labs
 | Lab | Topic | Model Used |
 |----|----|----|
@@ -151,3 +166,4 @@ Fine-tune a pre-trained generative model (GPT-2) for real-world applications.
 | Lab 9 | Sequence Generation | RNN / LSTM & Transformer |
 | Lab 10 | Sequential Data Generation | RNN / LSTM & Transformer |
 | Lab 11 | Fine-Tuning GPT-2 | GPT-2 |
+| Lab 12 | Text Generation with Attention | LSTM + Bahdanau Attention |
